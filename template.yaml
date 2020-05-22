@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  AWS Sample App to access Hashicorp Vault using assumed role
+
+Globals:
+  Function:
+    Timeout: 5
+
+Resources:
+  HVaultAccessFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: hvault_access/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Environment:
+        Variables:
+          VAULT_ADDR: https://ec2-54-198-163-115.compute-1.amazonaws.com:8200
+          VAULT_HEADER_VALUE: NA
+          VAULT_SKIP_VERIFY: true
+          ROLE_ARN: VaultLambdaRole
+          SECRET_PATH: dev
+          C_AWS_REGION: us-east-1
+      Events:
+        HVaultAccess:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /hvault
+            Method: get
+
+Outputs:
+  HVaultAccessApi:
+    Description: "API Gateway endpoint URL for Prod stage for Hashicorp Vault Access"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hvault/"
+  HVaultAccessFunction:
+    Description: "Hashicorp Vault Lambda Function ARN"
+    Value: !GetAtt HVaultAccessFunction.Arn
+  HVaultAccessFunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World function"
+    Value: !GetAtt HVaultAccessFunctionRole.Arn
