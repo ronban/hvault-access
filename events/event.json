@@ -5,7 +5,8 @@
   "httpMethod": "POST",
   "isBase64Encoded": false,
   "queryStringParameters": {
-    "path": "dev"
+    "path": "dev",
+    "role": "kv_prod"
   },
   "pathParameters": {
     "proxy": "/hvault"
