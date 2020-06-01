@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Create_Namespace",
+			"name": "1",
 			"item": [
 				{
 					"name": "Create Namespace",
@@ -49,7 +49,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Bootstrap_Engines",
+			"name": "2",
 			"item": [
 				{
 					"name": "Enable KV",
@@ -127,7 +127,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Bootstrap_Keys",
+			"name": "3",
 			"item": [
 				{
 					"name": "Create KV2 dev",
@@ -277,7 +277,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Build_Access",
+			"name": "4",
 			"item": [
 				{
 					"name": "Status Check",
@@ -481,61 +481,6 @@
 				}
 			],
 			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Clean_all",
-			"item": [
-				{
-					"name": "Delete Namespace",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "X-Vault-Namespace",
-								"value": "root",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://{{vault_url}}/v1/sys/namespaces/{{namespace}}",
-							"protocol": "https",
-							"host": [
-								"{{vault_url}}"
-							],
-							"path": [
-								"v1",
-								"sys",
-								"namespaces",
-								"{{namespace}}"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "20f65361-0990-4328-8273-12a4e0ced875",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"id": "16546c3d-2eb8-4e2a-a987-35c3f6a8ed2f",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
-			],
-			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
@@ -577,43 +522,43 @@
 	],
 	"variable": [
 		{
-			"id": "9df30d98-6aa4-4ef4-bef1-39c579449d6e",
+			"id": "fe9d9051-de8c-460d-9488-d65eede31695",
 			"key": "namespace",
 			"value": "etclaims",
 			"type": "string"
 		},
 		{
-			"id": "bfbb739a-e96a-4047-95e8-8be1ac54d80e",
+			"id": "fcf07552-c4db-4d7c-a632-fcf26b274d43",
 			"key": "trust_accountid",
 			"value": "668681129824",
 			"type": "string"
 		},
 		{
-			"id": "68dc3e4e-fc5f-44a4-82b8-1405bae50176",
+			"id": "02ec7de3-91da-44fb-af23-787a56f7f55c",
 			"key": "trust_role",
 			"value": "HVaultFunctionRole",
 			"type": "string"
 		},
 		{
-			"id": "8262db86-2c4c-4e37-a366-fd2023a26457",
+			"id": "047a1380-c60b-40b5-badf-adf802a32094",
 			"key": "vault_role",
 			"value": "dev_role",
 			"type": "string"
 		},
 		{
-			"id": "c696a3bb-da01-4d42-9202-2cef4316851e",
+			"id": "6744c8cd-9edd-4f1d-89d2-c15e12f4397e",
 			"key": "vault_role_policies",
 			"value": "dev",
 			"type": "string"
 		},
 		{
-			"id": "c25e8783-c0f4-4279-a042-b9cb4538b329",
+			"id": "301501fa-737c-49f0-a1bb-e96ad417adc3",
 			"key": "vault_url",
 			"value": "ec2-18-204-7-79.compute-1.amazonaws.com:8200",
 			"type": "string"
 		},
 		{
-			"id": "80e076cc-35e2-42a8-bb77-f00406c6dc80",
+			"id": "d9989dad-e24a-4fde-8afb-761709b8a9ad",
 			"key": "vault_token",
 			"value": "s.FjoPtnm6sywkmDdtJEL3Mxyo",
 			"type": "string"
