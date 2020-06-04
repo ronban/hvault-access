@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="accountSettings">
-    <option name="activeProfile" value="profile:banroney" />
+    <option name="activeProfile" value="profile:linuxacademy" />
+    <option name="activeRegion" value="us-east-1" />
     <option name="recentlyUsedProfiles">
       <list>
+        <option value="profile:linuxacademy" />
+        <option value="profile:acg" />
+        <option value="profile:default" />
         <option value="profile:banroney" />
       </list>
     </option>
