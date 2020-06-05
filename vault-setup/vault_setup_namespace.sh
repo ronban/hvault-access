@@ -1,0 +1,1 @@
+aws iam create-role --role-name VaultRole_Opt12_CCDev --assume-role-policy-document trust-consumer-account.json "$1"
