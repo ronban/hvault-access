@@ -27,20 +27,19 @@ def lambda_handler(event, context):
     vault_namespace = os.getenv('VAULT_NAMESPACE')
     vault_bucket = os.getenv('VAULT_BUCKET')
     vault_cert_loc = os.getenv('VAULT_SERVER_CERT')
-    vault_role = os.getenv('VAULT_ROLE_ARN')
 
     path = event["queryStringParameters"]['path']
     role = event["queryStringParameters"]['role']
+    vault_role_arn = event["queryStringParameters"]['vault_role_arn']
 
-    #session_assumed = aws_session(role_arn=vault_role, session_name='my_vault_lambda')
-    session_regular = aws_session()
+    session_assumed = aws_session(role_arn=vault_role_arn, session_name='my_vault_lambda')
 
     client = hvac.Client(url=vault_addr,
                          namespace=vault_namespace,
                          verify=False
                          )
 
-    creds = session_regular.get_credentials().get_frozen_credentials()
+    creds = session_assumed.get_credentials().get_frozen_credentials()
 
     client.auth.aws.iam_login(
         access_key=creds.access_key,

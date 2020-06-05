@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "1",
+			"name": "Create_Namespace",
 			"item": [
 				{
 					"name": "Create Namespace",
@@ -49,7 +49,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "2",
+			"name": "Enable_Engines",
 			"item": [
 				{
 					"name": "Enable KV",
@@ -127,10 +127,10 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "3",
+			"name": "Bootstrap_Secrets",
 			"item": [
 				{
-					"name": "Create KV2 dev",
+					"name": "Create KV2 Option1_2",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -142,7 +142,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"options\": {\n        \"cas\": 0\n    },\n    \"data\": {\n       \"mysecret\":\"M2WGfjse6T9\"\n    }\n}",
+							"raw": "{\n    \"options\": {\n        \"cas\": 0\n    },\n    \"data\": {\n       \"mysecret\":\"Opt12-M2WGfjse6T9\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -150,7 +150,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{vault_url}}/v1/kv/data/dev",
+							"raw": "https://{{vault_url}}/v1/kv/data/opt12",
 							"protocol": "https",
 							"host": [
 								"{{vault_url}}"
@@ -159,14 +159,14 @@
 								"v1",
 								"kv",
 								"data",
-								"dev"
+								"opt12"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Create KV2 prod",
+					"name": "Create KV2 Option 3",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -178,7 +178,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"options\": {\n        \"cas\": 0\n    },\n    \"data\": {\n       \"mysecret\":\"OIEHihi34h!@\"\n    }\n}",
+							"raw": "{\n    \"options\": {\n        \"cas\": 0\n    },\n    \"data\": {\n       \"mysecret\":\"Option3-OIEHihi34h!@\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -186,7 +186,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{vault_url}}/v1/kv/data/prod",
+							"raw": "https://{{vault_url}}/v1/kv/data/opt3",
 							"protocol": "https",
 							"host": [
 								"{{vault_url}}"
@@ -195,14 +195,14 @@
 								"v1",
 								"kv",
 								"data",
-								"prod"
+								"opt3"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Create policy dev",
+					"name": "Create policy Option1_2",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -214,7 +214,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"policy\": \"path \\\"kv/data/dev\\\" {\\n    capabilities = [\\\"read\\\",\\\"list\\\",\\\"create\\\"]\\n}\"\n}",
+							"raw": "{\n  \"policy\": \"path \\\"kv/data/opt12\\\" {\\n    capabilities = [\\\"read\\\",\\\"list\\\",\\\"create\\\"]\\n}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -222,7 +222,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{vault_url}}/v1/sys/policy/dev",
+							"raw": "https://{{vault_url}}/v1/sys/policy/opt12",
 							"protocol": "https",
 							"host": [
 								"{{vault_url}}"
@@ -231,14 +231,14 @@
 								"v1",
 								"sys",
 								"policy",
-								"dev"
+								"opt12"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Create policy prod",
+					"name": "Create policy Option3",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -250,7 +250,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"policy\": \"path \\\"kv/data/dev\\\" {\\n    capabilities = [\\\"read\\\",\\\"list\\\"]\\n}\"\n}",
+							"raw": "{\n  \"policy\": \"path \\\"kv/data/opt3\\\" {\\n    capabilities = [\\\"read\\\",\\\"list\\\"]\\n}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -258,7 +258,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{vault_url}}/v1/sys/policy/prod",
+							"raw": "https://{{vault_url}}/v1/sys/policy/opt3",
 							"protocol": "https",
 							"host": [
 								"{{vault_url}}"
@@ -267,17 +267,39 @@
 								"v1",
 								"sys",
 								"policy",
-								"prod"
+								"opt3"
 							]
 						}
 					},
 					"response": []
 				}
 			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e072abb4-d275-4a3d-a7f2-b79c126c3fdd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6eb09968-862b-4814-a880-5ed57f298213",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "4",
+			"name": "Build_Access",
 			"item": [
 				{
 					"name": "Status Check",
@@ -324,7 +346,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"sts_role\": \"arn:aws:iam::{{trust_accountid}}:role/{{trust_role}}\"\n}"
+							"raw": "{\n  \"sts_role\": \"{{consumer_role_arn}}\"\n}"
 						},
 						"url": {
 							"raw": "https://{{vault_url}}/v1/auth/aws/config/sts/{{trust_accountid}}",
@@ -398,22 +420,22 @@
 					"response": []
 				},
 				{
-					"name": "Add/Update Role with Trusted Role",
+					"name": "Add Trusted Consumer Role",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "X-Vault-Namespace",
-								"value": "{{namespace}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{namespace}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"bound_iam_principal_arn\": [\"arn:aws:iam::{{trust_accountid}}:role/{{trust_role}}\"],\n  \"auth_type\": \"iam\",\n  \"policies\": [\"{{vault_role_policies}}\"]\n}\n"
+							"raw": "{\n  \"bound_iam_principal_arn\": [\"{{consumer_role_arn}}\"],\n  \"auth_type\": \"iam\",\n  \"policies\": [\"opt12\"]\n}\n"
 						},
 						"url": {
-							"raw": "https://{{vault_url}}/v1/auth/aws/role/{{vault_role}}",
+							"raw": "https://{{vault_url}}/v1/auth/aws/role/{{vault_role_prefix}}_opt12",
 							"protocol": "https",
 							"host": [
 								"{{vault_url}}"
@@ -423,14 +445,14 @@
 								"auth",
 								"aws",
 								"role",
-								"{{vault_role}}"
+								"{{vault_role_prefix}}_opt12"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "GET Role Details",
+					"name": "GET Role Details - Opt12",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -441,7 +463,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{vault_url}}/v1/auth/aws/role/{{vault_role}}",
+							"raw": "https://{{vault_url}}/v1/auth/aws/role/{{vault_role_prefix}}_opt12",
 							"protocol": "https",
 							"host": [
 								"{{vault_url}}"
@@ -451,7 +473,67 @@
 								"auth",
 								"aws",
 								"role",
-								"{{vault_role}}"
+								"{{vault_role_prefix}}_opt12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Trusted Local Role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Vault-Namespace",
+								"type": "text",
+								"value": "{{namespace}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"bound_iam_principal_arn\": [\"{{local_role_arn}}\"],\n  \"auth_type\": \"iam\",\n  \"policies\": [\"opt3\"]\n}\n"
+						},
+						"url": {
+							"raw": "https://{{vault_url}}/v1/auth/aws/role/{{vault_role_prefix}}_opt3",
+							"protocol": "https",
+							"host": [
+								"{{vault_url}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"aws",
+								"role",
+								"{{vault_role_prefix}}_opt3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Role Details - Opt3",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Vault-Namespace",
+								"value": "{{namespace}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{vault_url}}/v1/auth/aws/role/{{vault_role_prefix}}_opt3",
+							"protocol": "https",
+							"host": [
+								"{{vault_url}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"aws",
+								"role",
+								"{{vault_role_prefix}}_opt3"
 							]
 						}
 					},
@@ -522,43 +604,43 @@
 	],
 	"variable": [
 		{
-			"id": "fe9d9051-de8c-460d-9488-d65eede31695",
+			"id": "ce6d675e-8152-4c89-9489-d60f98e7015a",
 			"key": "namespace",
-			"value": "etclaims",
+			"value": "ccenter",
 			"type": "string"
 		},
 		{
-			"id": "fcf07552-c4db-4d7c-a632-fcf26b274d43",
+			"id": "160cdfa9-1d37-40f9-8178-2d4cdececb3e",
 			"key": "trust_accountid",
-			"value": "668681129824",
+			"value": "540825424769",
 			"type": "string"
 		},
 		{
-			"id": "02ec7de3-91da-44fb-af23-787a56f7f55c",
-			"key": "trust_role",
-			"value": "HVaultFunctionRole",
+			"id": "487c9174-50ca-45b5-8aee-df3960014bdd",
+			"key": "consumer_role_arn",
+			"value": "arn:aws:iam::540825424769:role/HVaultOpt12FunctionRole",
 			"type": "string"
 		},
 		{
-			"id": "047a1380-c60b-40b5-badf-adf802a32094",
-			"key": "vault_role",
-			"value": "dev_role",
+			"id": "4e985b97-7ce5-4fe6-b7a0-6873ee668939",
+			"key": "local_role_arn",
+			"value": "arn:aws:iam::951145066533:role/VaultRole_Opt3_CCDev",
 			"type": "string"
 		},
 		{
-			"id": "6744c8cd-9edd-4f1d-89d2-c15e12f4397e",
-			"key": "vault_role_policies",
-			"value": "dev",
+			"id": "209d5405-3796-4837-9486-0f5f2bc6f5e6",
+			"key": "vault_role_prefix",
+			"value": "role",
 			"type": "string"
 		},
 		{
-			"id": "301501fa-737c-49f0-a1bb-e96ad417adc3",
+			"id": "1e9c5f2e-5a01-486c-b4c2-1ad762461a97",
 			"key": "vault_url",
 			"value": "ec2-18-204-7-79.compute-1.amazonaws.com:8200",
 			"type": "string"
 		},
 		{
-			"id": "d9989dad-e24a-4fde-8afb-761709b8a9ad",
+			"id": "96c8f294-d731-4dc6-9954-a9f4bc602f5e",
 			"key": "vault_token",
 			"value": "s.FjoPtnm6sywkmDdtJEL3Mxyo",
 			"type": "string"
